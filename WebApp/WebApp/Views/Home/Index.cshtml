@@ -1,0 +1,105 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Contact
+<style>
+    span {
+        display: inline-block;
+        max-width: 200px;
+        background-color: white;
+        padding: 5px;
+        border-radius: 4px;
+        position: relative;
+        border-width: 1px;
+        border-style: solid;
+        border-color: grey;
+    }
+
+    left {
+        float: left;
+    }
+
+    span.left:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: -8.5px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid white;
+    }
+
+    span.left:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        left: -9px;
+        top: 7px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid black;
+    }
+
+    span.right:after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -8px;
+        top: 6px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid #dbedfe;
+    }
+
+    span.right:before {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        right: -9px;
+        top: 6px;
+        height: 0px;
+        width: 0px;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-left: 8px solid black;
+    }
+
+    span.right {
+        float: right;
+        background-color: #dbedfe;
+    }
+
+    .clear {
+        clear: both;
+    }
+</style>
+<div>
+    @foreach(var name in ViewBag.Names)
+    {
+        @name <p> </p>
+    }
+</div>
+<span class="left">Hello!</span>
+<div class="clear"></div>
+<span class="right">Hi!</span>
+<div class="clear"></div>
+<span class="left">How are you?</span>
+<div class="clear"></div>
+<span class="right">I'm OK, thanks!</span>
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(model => model.Name, "hhhh");
+    @Html.EditorFor(model => model.Name);
+    @Html.EditorFor(model => model.Age);
+    <input type="submit" />
+
+}
+
